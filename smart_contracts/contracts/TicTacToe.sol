@@ -9,7 +9,7 @@ contract TicTacToe{
     uint public gameNumber = 0;
 
     struct GameState{
-        uint gameid;
+        uint gameId;
         address playerOne;
         address playerTwo;
         PlayerInfo[3][3] board;
@@ -28,17 +28,17 @@ contract TicTacToe{
 
     function startNewGame() public {
         GameState memory game;
-        game.playerTurn = PlayerInfo.PlayerOne;
+        game.nextTurn = PlayerInfo.Player1;
         game.gameId = gameNumber;
-        games[gameNumber] = game;
+        games.push(game);       //Games at index i will be the ith game played
         gameNumber++;
 
-        emit NewGame(msg.sender, playerOne);
+        emit NewGame(msg.sender, game.gameId);
 
     }
 
 
-    event NewGame(address playerOne, uint gameID)
+    event NewGame(address playerOne, uint gameID);
 
 
 
