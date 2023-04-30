@@ -7,3 +7,17 @@
 # Solidity
  In order to check the Solidity contract that we are writing for the back-end, cd into the smart_contracts directory and run the following command: "npx hardhat test".
  This command will run the test file for the our contract.
+ 
+  
+ First, in a temrinal, run 
+ ```bash
+ npx hardhat node
+ ```
+ This will start a blockchain network on your localhost.
+ 
+ Then, in a seperate terminal, cd into smart_contracts and run
+ ```bash
+ npx hardhat run --network localhost ./scripts/deploy.js
+ ```
+ 
+ This runs the deploy script!
