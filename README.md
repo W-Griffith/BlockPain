@@ -14,6 +14,10 @@
  npx hardhat node
  ```
  This will start a blockchain network on your localhost.
+ If that DOESN'T work, you can try being sure the hardhat toolbox is installed with 
+ ```bash
+ npm install --save-dev @nomicfoundation/hardhat-toolbox
+ ```
  
  Then, in a seperate terminal, cd into smart_contracts and run
  ```bash
