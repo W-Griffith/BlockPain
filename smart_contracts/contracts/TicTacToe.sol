@@ -44,7 +44,7 @@ contract TicTacToe{
 
     //Adds a second player to the game. Player1 will always be the one who started the game.
     //Player2 will be the one who calls this function.
-    function addPlayer(uint gameID) public returns (bool flag){
+    function joinGame(uint gameID) public returns (bool flag){
         address newPlayer = msg.sender;
         GameState storage game = games[gameID];
 
