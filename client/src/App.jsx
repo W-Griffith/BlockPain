@@ -21,7 +21,8 @@ const demoGame = async () => {
     from: addressess[0]
   })
 
-  console.log(receipt.events);
+  console.log(receipt.events['NewGame'].returnValues);
+  console.log(receipt.events.returnValues);
 
 }
 
