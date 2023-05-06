@@ -13,9 +13,9 @@ const web3 = new Web3('http://localhost:8545'); //I'm connecting this to the sam
 const contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
 const contract = new web3.eth.Contract(contractABI, contractAddress);
 let currentGameId = 0;
+let playerOne;
+let playerTwo;
 
-
-const currentGameID = 0;  // Once we figure out parsing, we can change this to the gameID returned by startGame event
 
 const demoGame = async () => {
 
@@ -27,6 +27,7 @@ const demoGame = async () => {
     from: addressess[0]
   })
 
+  playerOne = addressess[0];
   console.log(receipt.events['NewGame'].returnValues['gameID']);
   currentGameId = receipt.events['NewGame'].returnValues['gameID'];
 
@@ -36,10 +37,11 @@ const joinGame = async () => {
   
     const addressess = await web3.eth.getAccounts();
     console.log(addressess)
-    const receipt = await contract.methods.joinGame(currentGameID).send({
+    const receipt = await contract.methods.joinGame(currentGameId).send({
       from: addressess[1]
     })
   
+    playerTwo = addressess[1];
     console.log(receipt.events);
 }
 
