@@ -73,38 +73,13 @@
       "inputs": [
         {
           "indexed": false,
-          "internalType": "address",
-          "name": "playerOne",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "gameID",
-          "type": "uint256"
+          "internalType": "string",
+          "name": "message",
+          "type": "string"
         }
       ],
-      "name": "NewGame",
+      "name": "Test",
       "type": "event"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "gameID",
-          "type": "uint256"
-        }
-      ],
-      "name": "addPlayer",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "flag",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
     },
     {
       "inputs": [],
@@ -196,6 +171,25 @@
       "inputs": [
         {
           "internalType": "uint256",
+          "name": "gameID",
+          "type": "uint256"
+        }
+      ],
+      "name": "joinGame",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "flag",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
           "name": "row",
           "type": "uint256"
         },
@@ -228,4 +222,4 @@
       "stateMutability": "nonpayable",
       "type": "function"
     }
-]
+  ]

@@ -8,7 +8,7 @@ import contractABI from './ticTacToeABI.json';
 
 
 
-const web3 = new Web3('http://localhost:5173'); //I'm connecting this to the same port that our local react app is running on.
+const web3 = new Web3('http://localhost:8545'); //I'm connecting this to the same port that our local react app is running on.
 const contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
 const contract = new web3.eth.Contract(contractABI, contractAddress);
 
@@ -16,10 +16,12 @@ const demoGame = async () => {
 
   //const metaMask = new ethers.providers.Web3Provider(window.ethereum);
  
+  const addressess = await web3.eth.getAccounts();
+  const receipt = await contract.methods.startNewGame().send({
+    from: addressess[0]
+  })
 
-  const firstGame = await contract.methods.startNewGame();
-  alert(firstGame);
-
+  console.log(receipt.events);
 
 }
 

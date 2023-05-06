@@ -29,15 +29,19 @@ contract TicTacToe{
         Player2
     }
 
-    function startNewGame() public {
-        GameState memory game;
-        game.nextTurn = msg.sender;
-        game.gameId = gameNumber;
-        game.playerOne = msg.sender;
-        games.push(game);       //Games at index i will be the ith game played
-        gameNumber++;
+    function startNewGame() public{
+        
+        emit Test("Hello World");
+        //return "Hello World!";
+        // GameState memory game;
+        // game.nextTurn = msg.sender;
+        // game.gameId = ameNumber;
+        // game.playerOne = msg.sender;
+        // games.push(game);       //Games at index i will be the ith game played
+        // gameNumber++;
 
-        emit NewGame(msg.sender, game.gameId);
+
+        //emit NewGame(msg.sender, game.gameId);
 
     }
 
@@ -147,8 +151,8 @@ contract TicTacToe{
 
 
 
-
-    event NewGame(address playerOne, uint gameID);
+    event Test(string message);
+    //event NewGame(address playerOne, uint gameID);
     event GameFull(uint gameID, address playerOne, address playerTwo);
     event MoveMade(uint gameID, uint row, uint col);
     event GameOver(uint gameID,  PlayerInfo winner);
