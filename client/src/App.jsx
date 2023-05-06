@@ -45,18 +45,17 @@ const joinGame = async () => {
     console.log(receipt.events);
 }
 
-// const makeMove = async (coordinates) => {
+  async function makeMove(coordinates){ 
+      const row = coordinates[0];
+      const col = coordinates[1];
+      const addressess = await web3.eth.getAccounts();
+      console.log(addressess)
+      const receipt = await contract.methods.makeMove(row, col, currentGameId).send({
+        from: addressess[0]
+      })
     
-//       row = coordinates[0];
-//       col = coordinates[1];
-//       const addressess = await web3.eth.getAccounts();
-//       console.log(addressess)
-//       const receipt = await contract.methods.makeMove(currentGameID, row, col).send({
-//         from: addressess[0]
-//       })
-    
-//       console.log(receipt.events);
-// }
+      console.log(receipt.events);
+}
 
 function App() {
 
@@ -70,6 +69,7 @@ function App() {
 
       <button onClick={demoGame}> Click me!</button>
       <button onClick={joinGame}> Join Game</button>
+      <button onClick={() => makeMove([0,0])}> Make Move</button>
 
     </div>
 
