@@ -31,19 +31,23 @@ export default function GameBoard() {
    export function Square({coordinate, handleClick, xIsNext, setXIsNext}) {
 
     const [value, setValue] = useState(null);
-    
+    const [squarePlayed, setSquarePlayed] = useState(false);
 
     function handleClick() {
       
-      if(xIsNext) {
-        setValue("X");
-        setXIsNext(!xIsNext)
-      } else {
-        setValue("O");
-        setXIsNext(!xIsNext)
-      }
+      if(!squarePlayed) {
+        if(xIsNext) {
+          setValue("X");
+          setXIsNext(!xIsNext)
+          setSquarePlayed(true);
+        } else {
+          setValue("O");
+          setXIsNext(!xIsNext)
+          setSquarePlayed(true);
+        }
       
     }
+  }
 
     return (
       <button className="square" onClick={handleClick}>
