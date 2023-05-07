@@ -22,7 +22,6 @@ const demoGame = async () => {
   //const metaMask = new ethers.providers.Web3Provider(window.ethereum);
  
   const addressess = await web3.eth.getAccounts();
-  console.log(addressess)
   const receipt = await contract.methods.startNewGame().send({
     from: addressess[0]
   })
@@ -36,7 +35,6 @@ const demoGame = async () => {
 const joinGame = async () => {
   
     const addressess = await web3.eth.getAccounts();
-    console.log(addressess)
     const receipt = await contract.methods.joinGame(currentGameId).send({
       from: addressess[1]
     })
@@ -45,16 +43,35 @@ const joinGame = async () => {
     console.log(receipt.events);
 }
 
-  async function makeMove(coordinates){ 
+  //Function called when move is made.
+  /**
+   * 
+   * @param {*} coordinates - An array of format [row, col] indicating where the move was made
+   * @param {*} fromPlayer - An integer indicating which player made the move (1 or 2)
+   * @returns - The number of the player who won, or -1 if no one has won yet.
+   */
+  export async function makeMove(coordinates, fromPlayer){ 
+    const addressess = await web3.eth.getAccounts();
+      let from;
+      if(fromPlayer == 1){
+        from = addressess[0];
+      }else{
+        from = addressess[1];
+      }
       const row = coordinates[0];
       const col = coordinates[1];
-      const addressess = await web3.eth.getAccounts();
-      console.log(addressess)
+
       const receipt = await contract.methods.makeMove(row, col, currentGameId).send({
-        from: addressess[0]
+        from: from
       })
     
       console.log(receipt.events);
+      if(receipt.events['GameOver']){
+        console.log("Game Over");
+        console.log(receipt.events['GameOver'].returnValues['winner'])
+        return receipt.events['GameOver'].returnValues['winner'];
+      }
+      return -1;
 }
 
 function App() {
@@ -67,9 +84,8 @@ function App() {
       <Controls />
       <Scoreboard />
 
-      <button onClick={demoGame}> Click me!</button>
+      <button onClick={demoGame}> Start Game!</button>
       <button onClick={joinGame}> Join Game</button>
-      <button onClick={() => makeMove([0,0])}> Make Move</button>
 
     </div>
 
