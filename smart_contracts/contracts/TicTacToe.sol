@@ -146,6 +146,20 @@ contract TicTacToe{
             return (board[1][1], true);
          }
 
+         //Otherwise, is the board full but no winner?
+         bool boardFull = true;
+         for(uint i = 0; i < 3; i++){
+             for(uint j = 0; j < 3; j++){
+                 if(board[i][j] == PlayerInfo.None){
+                     boardFull = false; //The current square is not full
+                 }
+             }
+         }
+
+         if(boardFull){
+                return (PlayerInfo.None, true);
+         }
+
     return (PlayerInfo.None, false);
     }
 
