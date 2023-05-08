@@ -3,7 +3,7 @@
 In order to run everything, it is assumed you have nodeJS installed and updated, as well as hardhat and the web3 javascript library.
 
 Set up 3 terminals.  
- **To start, in the first terminal, cd into smart_contracts and run**
+ **1) To start, in the first terminal, cd into smart_contracts and run**
  ```bash
  npx hardhat node
  ```
@@ -17,16 +17,22 @@ Set up 3 terminals.
  npm install hardhat
  ```
  
- **Then, in the second terminal, cd into smart_contracts and run**
+ **2) Then, in the second terminal, cd into smart_contracts and run**
  ```bash
  npx hardhat run --network localhost ./scripts/deploy.js
  ```
   This runs the deploy script!
 
-**In the third terminal cd into the client directory (cd client), then run**
+**3) In the third terminal cd into the client directory (cd client), then run**
 ```
 npm run dev
 ```
+
+IF you get a message saying 'vite' is not recognized as an internal or external command, operable program or batch file, run the following command:
+```
+npm install
+```
+Now, try npm run dev one more time.
 
 Now, we have a front-end that can interact with out hardhat blockchain! Open the web browser of your choice, and go to the website:
 
