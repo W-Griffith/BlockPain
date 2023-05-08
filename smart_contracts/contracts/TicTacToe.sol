@@ -1,6 +1,6 @@
 // https://github.com/schemar/TicTacToe/blob/master/contracts/TicTacToe.sol
 // https://github.com/0xsergen/tic-tac-toe-dapp/blob/main/hardhat/contracts/TicTacToe.sol
-// ^^ Cool contracts I am referencing to set up
+// ^^ Cool contracts I am referencing to set up. Credit to those users for ideas on implementation.
 
 pragma solidity ^0.8.10;
 
@@ -120,7 +120,7 @@ contract TicTacToe{
     * Ex - If it's a tie, it will return PlayerInfo.None, False
     * Ex - If there are more moves to make but no winners, return PlayerInfo.None, True
      */
-    function gameOver(PlayerInfo[3][3] memory board) public returns (PlayerInfo winner, bool isGameOver){
+    function gameOver(PlayerInfo[3][3] memory board) public pure returns (PlayerInfo winner, bool isGameOver){
         //Is there a winner in each row?
         for(uint i = 0; i < 3; i++){
             if(board[i][0] == board[i][1] && 
