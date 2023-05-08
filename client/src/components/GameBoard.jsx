@@ -27,7 +27,7 @@ export default function GameBoard() {
      }
      return( 
         <>
-        <h1>GameBoard</h1>
+        <h1>Tic Tac Toe GameBoard</h1>
         <div className="board-row">
         <Square coordinate={[0,0]} xIsNext={xIsNext} setXIsNext={setXIsNext} setGameOver={setGameOver} setWinner={setWinner}/>
         <Square coordinate={[0,1]} xIsNext={xIsNext} setXIsNext={setXIsNext} setGameOver={setGameOver} setWinner={setWinner}/>
