@@ -1,6 +1,6 @@
 # BlockPain
 
-In order to run everything, it is assumed you have nodeJS installed and updated, as well as hardhat.
+In order to run everything, it is assumed you have nodeJS installed and updated, as well as hardhat and the web3 javascript library.
 
 Set up 3 terminals.
 In the first terminal, run
