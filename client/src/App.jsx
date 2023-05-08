@@ -1,5 +1,5 @@
 //import { useState } from 'react'
-import { Scoreboard, GameBoard, Controls, NavBar } from './components'
+import {  GameBoard, Controls } from './components'
 import './App.css'
 import { useState } from 'react'
 
@@ -79,7 +79,8 @@ function App() {
   return (
     
     <div className='Main_background'>
-      <NavBar />
+      <button onClick={demoGame}> Start Game!</button>
+      <button onClick={joinGame}> Join Game</button>
       <GameBoard />
       <Controls />
       <b>First, click 'Start Game!'. This will communicate with the smart contract that
@@ -95,11 +96,9 @@ function App() {
         All the game logic is actually handled through the smart contract. The react app is just a front end that communicates with the smart contract. This ensures a fair game, as the smart contract is the source of truth for the game state.
         If you are interested, you can view the console in the app. We are logging some of the smart contract events to the console. You can see the game state being updated in real time if you are inclined.
       </b>
-      <Scoreboard />
 
 
-      <button onClick={demoGame}> Start Game!</button>
-      <button onClick={joinGame}> Join Game</button>
+
 
     </div>
 
