@@ -3,8 +3,7 @@ function Controls() {
    
      return (
        
-      <h1>Controls</h1>
-   
+      <h1>How it works</h1>
      )
    }
    

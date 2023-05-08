@@ -82,7 +82,21 @@ function App() {
       <NavBar />
       <GameBoard />
       <Controls />
+      <b>First, click 'Start Game!'. This will communicate with the smart contract that
+        a game is starting, and will assign player 1 a wallet address. The wallet addressess are the hardhat node default
+        addressess. Then, click 'Join Game'. This will assign player 2 a wallet address.</b>
+    <p></p>
+      <b>
+        In a real implementation, players would use their own wallets, but with this prototype, we are using the hardhat node wallets all the time. Additionally, it is assumed both players are on the same machine. This would be changed in a real implementation, since the smart contract needs multiple addressess and a gameID, but not for the players to be restricted to the same machine.
+        Next, you are ready to start playing! Click on a square to make a move. The game will end when someone wins, or when the board is full. To play again, refresh the page.
+      </b>
+      <p></p>
+      <b>
+        All the game logic is actually handled through the smart contract. The react app is just a front end that communicates with the smart contract. This ensures a fair game, as the smart contract is the source of truth for the game state.
+        If you are interested, you can view the console in the app. We are logging some of the smart contract events to the console. You can see the game state being updated in real time if you are inclined.
+      </b>
       <Scoreboard />
+
 
       <button onClick={demoGame}> Start Game!</button>
       <button onClick={joinGame}> Join Game</button>
